@@ -17,9 +17,11 @@ const About = lazy(() => import("./components/About"));
 const ApplayoutComponent = () => {
   return (
     <>
-      <Header></Header>
-      <Outlet />
-      <Footer></Footer>
+      <div className="flex flex-col h-screen  font-serif">
+        <Header></Header>
+        <Outlet />
+        <Footer></Footer>
+      </div>
     </>
   );
 };

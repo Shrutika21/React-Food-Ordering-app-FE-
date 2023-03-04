@@ -11,7 +11,7 @@ const Titile = () => {
 const Header = () => {
   const isUserOnline = useIsUserOnline();
   return (
-    <header className="header sticky top-0 bg-orange-50 shadow-md flex items-center justify-between px-8 py-02">
+    <header className="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
       <h1 className="w-3/12">
         <a href="">
           <img className="h-28 p-3" alt="logo" src={image} />

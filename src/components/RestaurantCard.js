@@ -1,7 +1,7 @@
 import { IMG_CDN_URL } from "../Constants";
 const RestaurantCard = ({ cloudinaryImageId, name, cuisines, slaString }) => {
   return (
-    <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-1">
+    <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow hover:shadow-2xl p-2 m-2">
       <img
         className="rounded-t-lg"
         src={IMG_CDN_URL + cloudinaryImageId}

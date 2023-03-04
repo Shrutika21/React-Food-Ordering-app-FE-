@@ -1,31 +1,28 @@
 import image from "../../shimmer.png";
 const ShimmerUI = ({}) => {
   return (
-    <>
-      <div className="flex flex-wrap">
-        <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8">
-          <img src={image}></img>
-        </div>
-        <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8">
-          <img src={image}></img>
-        </div>
-        <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8">
-          <img src={image}></img>
-        </div>
-        <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8">
-          <img src={image}></img>
-        </div>
-        <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8">
-          <img src={image}></img>
-        </div>
-        <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8">
-          <img src={image}></img>
-        </div>
-        <div className="max-w-sm max-h-50 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-8">
-          <img src={image}></img>
-        </div>
-      </div>
-    </>
+    <div className="grid grid-cols-4 gap-2 place-items-center h-56 m-2 p-5">
+      {Array(15)
+        .fill("")
+        .map((item, index) => (
+          <div className="w-full bg-white drop-shadow-md rounded-lg p-2 m-3">
+            <div className="animate-pulse w-full h-48 bg-slate-200"></div>
+            <div className="p-3 space-y-4">
+              <div className="animate-pulse w-2/3 h-6 bg-slate-200"></div>
+              <div className="flex space-x-4">
+                <div className="animate-pulse w-1/3 h-3 bg-orange-200"></div>
+                <div className="animate-pulse w-1/3 h-3 bg-orange-200"></div>
+                <div className="animate-pulse w-1/3 h-3 bg-orange-200"></div>
+              </div>
+              <div className="space-y-2">
+                <div className="animate-pulse w-3/4 h-3 bg-slate-200"></div>
+                <div className="animate-pulse w-full h-3 bg-slate-200"></div>
+                <div className="animate-pulse w-2/3 h-3 bg-slate-200"></div>
+              </div>
+            </div>
+          </div>
+        ))}
+    </div>
   );
 };
 
