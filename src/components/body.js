@@ -89,7 +89,7 @@ const Body = () => {
           </div>
         </form>
       </div>
-      <div className="grid grid-cols-4 gap-2 place-items-center h-56">
+      <div className="grid grid-cols-4 gap-2 place-items-center pb-40">
         {filteredRestaurants?.map((restaurant) => {
           return (
             <Link

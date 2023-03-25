@@ -1,6 +1,8 @@
 import image from "../../logo 2.png";
 import { Link } from "react-router-dom";
 import useIsUserOnline from "../utils/useIsUserOnline";
+import { useSelector } from "react-redux";
+
 const Titile = () => {
   return (
     <a href="/">
@@ -9,6 +11,9 @@ const Titile = () => {
   );
 };
 const Header = () => {
+  const cartTotalQuantity = useSelector(
+    (store) => store.cart.cartTotalQuantity
+  );
   const isUserOnline = useIsUserOnline();
   return (
     <header className="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
@@ -24,12 +29,6 @@ const Header = () => {
           </li>
           <li className="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer">
             <Link to="/about">About</Link>
-          </li>
-          <li className="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer">
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li className="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer">
-            <Link to="/cart">Cart</Link>
           </li>
         </ul>
       </nav>
@@ -53,7 +52,7 @@ const Header = () => {
             ></path>
           </svg>
         </a>
-        <a href="">
+        <Link to="/cart">
           <svg
             className="h-8 p-1 hover:text-orange-500 duration-200"
             aria-hidden="true"
@@ -70,8 +69,13 @@ const Header = () => {
               className=""
             ></path>
           </svg>
-        </a>
-        <h1>{isUserOnline ? "✅" : "🔴"}</h1>
+        </Link>
+        <span
+          data-testid="cart"
+          className=" absolute right-6 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center"
+        >
+          {cartTotalQuantity}
+        </span>
       </div>
     </header>
   );

@@ -11,17 +11,21 @@ import Error from "./components/Error";
 import Profile from "./components/Profile";
 import ProfileClass from "./components/ProfileClass";
 import ShimmerUI from "./components/shimmer";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const Cart = lazy(() => import("./components/Cart"));
 const About = lazy(() => import("./components/About"));
 const ApplayoutComponent = () => {
   return (
     <>
-      <div className="flex flex-col h-screen  font-serif">
-        <Header></Header>
-        <Outlet />
-        <Footer></Footer>
-      </div>
+      <Provider store={store}>
+        <div className="flex flex-col min-h-full font-serif">
+          <Header></Header>
+          <Outlet className="mb-auto" />
+          <Footer></Footer>
+        </div>
+      </Provider>
     </>
   );
 };
@@ -48,7 +52,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/",
-        element: <Body />,
+        element: <Body className="container px-4 py-10 mx-auto" />,
       },
       {
         path: "/contact",
