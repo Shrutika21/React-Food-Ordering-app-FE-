@@ -16,7 +16,8 @@ const RestaurantMenu = () => {
     dispatch(addItem(item));
     dispatch(getTotalAmount());
   };
-  console.log("restaurantDetails  here" + JSON.stringify(restaurantDetails));
+  var price = 0;
+  console.log("restaurant Menu  here" + JSON.stringify(restaurant));
   return !restaurant ? (
     <ShimmerUI></ShimmerUI>
   ) : (
@@ -47,10 +48,13 @@ const RestaurantMenu = () => {
         </div>
       </div>
       <div className="resruarantMenu">
-        <ul className="max-w max-h-7 divide-y divide-gray-200 dark:divide-gray-700 p-10 justify-center">
+        <ul
+          className="max-w max-h-7 divide-y divide-gray-200 dark:divide-gray-700 p-10 justify-center"
+          data-testid="menu"
+        >
           {restaurant.map((item) => (
             <>
-              <li key={item.card.info.id} className="m:pb-9">
+              <li key={item.card.info.id} className="last:pb-40">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0">
                     {item.card.info.imageId ? (
@@ -75,18 +79,17 @@ const RestaurantMenu = () => {
                     </p>
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    {item.card.info?.price / 100 == 0 ? (
-                      <span className="text-sm mr-1">
-                        ₹{item.card.info?.defaultPrice / 100}
-                      </span>
+                    {(price = item.card.info?.price
+                      ? item.card.info.price
+                      : item.card.info.defaultPrice) > 100 ? (
+                      <span className="text-sm mr-1">₹{price / 100}</span>
                     ) : (
-                      <span className="text-sm mr-1">
-                        ₹{item.card.info?.price / 100}
-                      </span>
+                      <span className="text-sm mr-1">₹{price}</span>
                     )}
                   </div>
                   <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                     <button
+                      data-testid="addBtn"
                       className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800"
                       onClick={() => {
                         handleAddItem(item.card.info);

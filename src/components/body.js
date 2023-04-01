@@ -68,11 +68,13 @@ const Body = () => {
               placeholder="Search..."
               required
               value={searchText}
+              data-testid="search-input"
               onChange={(e) => {
                 setSearchText(e.target.value);
               }}
             ></input>
             <button
+              data-testid="search-btn"
               id="search-this"
               type="button"
               className="text-white absolute right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
@@ -89,7 +91,10 @@ const Body = () => {
           </div>
         </form>
       </div>
-      <div className="grid grid-cols-4 gap-2 place-items-center pb-40">
+      <div
+        className="grid grid-cols-4 gap-2 place-items-center pb-40"
+        data-testid="restaurant-list"
+      >
         {filteredRestaurants?.map((restaurant) => {
           return (
             <Link

@@ -19,7 +19,7 @@ const Header = () => {
     <header className="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
       <h1 className="w-3/12">
         <a href="">
-          <img className="h-28 p-3" alt="logo" src={image} />
+          <img data-testid="logo" className="h-28 p-3" alt="logo" src={image} />
         </a>
       </h1>
       <nav className="nav font-semibold text-lg">
@@ -29,6 +29,9 @@ const Header = () => {
           </li>
           <li className="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer">
             <Link to="/about">About</Link>
+          </li>
+          <li className="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer">
+            <h1 data-testid="online-status">{isUserOnline ? "✅" : "🔴"}</h1>
           </li>
         </ul>
       </nav>

@@ -1,7 +1,10 @@
 import image from "../../shimmer.png";
 const ShimmerUI = ({}) => {
   return (
-    <div className="grid grid-cols-4 gap-2 place-items-center m-2 p-5">
+    <div
+      className="grid grid-cols-4 gap-2 place-items-center m-2 p-5"
+      data-testid="shimmer-UI"
+    >
       {Array(15)
         .fill("")
         .map((item, index) => (
